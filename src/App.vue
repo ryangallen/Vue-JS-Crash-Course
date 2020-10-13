@@ -4,6 +4,9 @@
 </template>
 
 <script>
+  import 'purecss/build/pure-min.css'
+  import 'purecss/build/grids-responsive-min.css'
+
   import Header from './components/layout/Header'
   import Jots from './components/Jots'
 

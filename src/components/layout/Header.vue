@@ -18,6 +18,7 @@
 
   header>h1 {
     text-transform: uppercase;
+    margin: 0;
   }
 
   header>div {

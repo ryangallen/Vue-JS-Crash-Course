@@ -1,8 +1,6 @@
 <template>
   <div id="jots">
-    <h2>
-      Hi {{user.name}}&mdash;have any thoughts to share?
-    </h2>
+    <JotSomething v-bind:user="user" v-on:add-jot="addJot" />
     <div v-for="jot in jots" v-bind:key="jot.id">
       <JotItem v-bind:jot="jot" v-on:mark-done="markDone" v-on:rem-jot="removeJot" />
     </div>
@@ -11,11 +9,14 @@
 
 <script>
 import { DateTime } from 'luxon';
+
+import JotSomething from './JotSomething';
 import JotItem from './JotItem';
 
 export default {
   name: 'Jots',
   components: {
+    JotSomething,
     JotItem
   },
   props: ["user"],
@@ -26,6 +27,9 @@ export default {
     },
     removeJot(jotId) {
       this.jots = this.jots.filter(jot => jot.id !== jotId)
+    },
+    addJot(newJotItem) {
+      this.jots = [...this.jots, newJotItem]
     }
   },
   data() {
@@ -74,13 +78,10 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  margin: 2em 0;
-  font-weight: 200;
-}
 #jots {
   max-width: 1080px;
   margin: 0 auto;
+  padding: 0 24px;
   text-align: justify;
 }
 </style>
