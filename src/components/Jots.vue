@@ -3,18 +3,21 @@
     <h2>
       Hi {{user.name}}&mdash;have any thoughts to share?
     </h2>
-    <div v-for="jot in jots" v-bind:key="jot.id" class="jot">
-      <div>{{jot.time}}</div>
-      <p>{{jot.msg}}</p>
+    <div v-for="jot in jots" v-bind:key="jot.id">
+      <JotItem v-bind:jot="jot" />
     </div>
   </div>
 </template>
 
 <script>
 import { DateTime } from 'luxon';
+import JotItem from './JotItem';
 
 export default {
   name: 'Jots',
+  components: {
+    JotItem
+  },
   props: ["user"],
   data() {
     return {
@@ -62,29 +65,13 @@ export default {
 </script>
 
 <style scoped>
-* {
-  text-align: justify;
-}
 h2 {
   margin: 2em 0;
   font-weight: 200;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 #jots {
   max-width: 1080px;
   margin: 0 auto;
-}
-.jot {
-  margin-bottom: 32px;
+  text-align: justify;
 }
 </style>
