@@ -9,7 +9,9 @@ tutorial by
 
 - [Node.js](https://nodejs.org/en/)
 - [Vue CLI](https://cli.vuejs.org/): `npm i -g @vue/cli`
-- [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+- Vue.js devtools:
+  [Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/) /
+  [Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en-US)
 
 ## Set up
 
