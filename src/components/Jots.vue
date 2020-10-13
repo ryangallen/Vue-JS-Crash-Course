@@ -4,7 +4,7 @@
       Hi {{user.name}}&mdash;have any thoughts to share?
     </h2>
     <div v-for="jot in jots" v-bind:key="jot.id">
-      <JotItem v-bind:jot="jot" />
+      <JotItem v-bind:jot="jot" v-on:mark-done="markDone" v-on:rem-jot="removeJot" />
     </div>
   </div>
 </template>
@@ -19,6 +19,15 @@ export default {
     JotItem
   },
   props: ["user"],
+  methods: {
+    markDone(jotId) {
+      const jot = this.jots.find(jot => jot.id == jotId);
+      jot.done = !jot.done
+    },
+    removeJot(jotId) {
+      this.jots = this.jots.filter(jot => jot.id !== jotId)
+    }
+  },
   data() {
     return {
       jots: [
